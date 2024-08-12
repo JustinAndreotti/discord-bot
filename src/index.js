@@ -81,20 +81,15 @@ client.on('interactionCreate', (interaction) => {
     //respond to the /embed command
     //TODO: Flesh out the embed command
     if (interaction.commandName === "embed"){
-        if(interaction.member.permissionsIn(interaction.channel).has("ADMINISTRATOR")){
-            const embed = new EmbedBuilder()
-            .setTitle('Embed Title')
-            .setDescription('This is an embed')
-            .setColor('Random')
-            .addFields({name: 'field title', value: 'some random value', inline: true})
-            .addFields({name: 'field title', value: 'some random value', inline: true})
-            .addFields({name: 'field title', value: 'some random value', inline: true})
-            
-            interaction.channel.send({ embeds: [embed]});
-        }
-        else {
-            interaction.reply(interaction.user.displayName + " Does not have permission for this command.");
-        }
+        const embed = new EmbedBuilder()
+        .setTitle('Embed Title')
+        .setDescription('This is an embed')
+        .setColor('Random')
+        .addFields({name: 'field title', value: 'some random value', inline: true})
+        .addFields({name: 'field title', value: 'some random value', inline: true})
+        .addFields({name: 'field title', value: 'some random value', inline: true})
+        
+        interaction.channel.send({ embeds: [embed]});
     } 
 }); //end InteractionCreate event listener
 
