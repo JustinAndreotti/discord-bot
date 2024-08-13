@@ -48,6 +48,16 @@ client.on('messageCreate', (message) => {
     if (message.content ===  "am i being watched?" || message.content === "Am I being watched?") {
         message.reply('You are under surveillance.')
     }
+    //add a random chance for the bot to call you out
+    var surveillanceChance = Math.random();
+    var chanceMax = 100;
+    surveillanceChance = (surveillanceChance * chanceMax) + 1;
+    surveillanceChance = Math.floor(surveillanceChance);
+    console.log("Surveillance Chance: " + surveillanceChance);
+    if (surveillanceChance === 50)
+    {
+        message.reply(message.user.displayName + ', you are under surveillance');
+    }
 });
 
 
@@ -80,7 +90,8 @@ client.on('interactionCreate', (interaction) => {
         randomNum = (randomNum * maxValue) + 1;
         randomNum = Math.floor(randomNum);
 
-        interaction.reply(interaction.user.displayName + " has rolled " + randomNum);
+        interaction.reply("**" + interaction.user.displayName + "**" + " has rolled a " 
+            + "**" + randomNum + "**" + " on a d" + maxValue);
     }
 
     //respond to the /embed command
