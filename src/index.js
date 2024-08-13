@@ -1,5 +1,5 @@
 require('dotenv').config();
-const {Client, IntentsBitField, EmbedBuilder} = require('discord.js');
+const {Client, IntentsBitField, EmbedBuilder, ActivityType} = require('discord.js');
 
 
 
@@ -29,6 +29,11 @@ client.login(process.env.TOKEN);
 //Console log when the bot is ready
 client.on('ready', (c) => {             //c stands for client 
     console.log(`${c.user.username}` + " is now watching");
+
+    client.user.setActivity({
+        name: "Constantly Overseeing",
+        type: ActivityType.Custom
+    })
 });
 
 
@@ -40,7 +45,7 @@ client.on('messageCreate', (message) => {
     if (message.author.bot) {
         return;
     }
-    if (message.content === "Am I being watched?" || "am i being watched?") {
+    if (message.content ===  "am i being watched?" || message.content === "Am I being watched?") {
         message.reply('You are under surveillance.')
     }
 });
