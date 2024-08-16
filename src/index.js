@@ -27,6 +27,15 @@ const client = new Client({
         //Turn bot on
         client.login(process.env.TOKEN);  
 
+        //set status for bot
+        client.on('ready', (c) => {     //c stands for client 
+            client.user.setActivity({
+                name: "Constantly Overseeing",
+                type: ActivityType.Custom
+            })
+        });
+        
+
     } catch (error) {
         console.log(`Error connecting to mongoDB, error: ${error}`);
     }
