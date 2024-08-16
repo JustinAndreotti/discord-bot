@@ -19,7 +19,6 @@ module.exports = (exceptions = []) => {
                 continue;
             }
 
-            console.log(commandObject);
             localCommands.push(commandObject);
         }
     }
